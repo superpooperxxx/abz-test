@@ -1,0 +1,36 @@
+@use '../../sassStyles/colors' as *;
+@use '../../sassStyles/mixins' as *;
+
+.people {
+  &__title {
+    margin-bottom: 50px;
+
+    text-align: center;
+    font-size: 40px;
+    color: $color__text--main;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+
+    margin-bottom: 50px;
+
+    @include onTablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 29px;
+    }
+  }
+
+  &__show-more {
+    width: min-content;
+    margin: 0 auto;
+  }
+}

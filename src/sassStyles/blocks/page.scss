@@ -1,0 +1,13 @@
+@use '../colors' as *;
+
+.page {
+  background: $color__background;
+
+  &__hero {
+    margin-bottom: 140px;
+  }
+
+  &__people {
+    margin-bottom: 140px;
+  }
+}
