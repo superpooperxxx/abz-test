@@ -1,0 +1,8 @@
+@use './sassStyles/reset';
+@use './sassStyles/blocks/container';
+@use './sassStyles/colors' as *;
+
+:root {
+  font-family: 'Nunito', sans-serif;
+  color: $color__text--main;
+}

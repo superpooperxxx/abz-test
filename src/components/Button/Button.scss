@@ -1,0 +1,29 @@
+@use '../../sassStyles/colors' as *;
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 34px;
+
+  font-size: 16px;
+  color: $color__text--main;
+
+  background: $color__accent;
+
+  &:hover {
+    background: $color__accent--hover;
+  }
+
+  &--disabled {
+    background: $color__btn--disabled;
+    color: $color__text--secondary;
+  }
+
+  &--show-more {
+    width: 120px;
+  }
+
+  border-radius: 80px;
+}
