@@ -1,3 +1,9 @@
+@mixin onLandscape {
+  @media (max-width: 1024px) and (orientation: landscape) {
+    @content;
+  }
+}
+
 @mixin onTablet {
   @media (min-width: 768px) {
     @content;
