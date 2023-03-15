@@ -1,9 +1,11 @@
+@use '../../sassStyles/variables' as *;
+
 .header {
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: $header__height;
 
     background: #fff;
   }
