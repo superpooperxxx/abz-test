@@ -13,10 +13,10 @@ export const Header: React.FC = () => (
       />
       <ul className="header__btns">
         <li className="header__btn">
-          <Button>Users</Button>
+          <Button clickHandler={() => null}>Users</Button>
         </li>
         <li className="header__btn">
-          <Button>Sign up</Button>
+          <Button clickHandler={() => null}>Sign up</Button>
         </li>
       </ul>
     </div>

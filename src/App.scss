@@ -1,7 +1,10 @@
 @use './sassStyles/reset';
-@use './sassStyles/blocks/container';
 @use './sassStyles/colors' as *;
 @use './sassStyles/typography';
+
+// Blocks
+@use './sassStyles/blocks/container';
+@use './sassStyles/blocks/page.scss';
 
 :root {
   font-family: 'Nunito', sans-serif;

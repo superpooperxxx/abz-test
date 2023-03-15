@@ -1,0 +1,40 @@
+@use '../../sassStyles/colors' as *;
+
+.person {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+
+  background: #fff;
+  border-radius: 10px;
+
+  &__photo {
+    display: block;
+    width: 70px;
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+  }
+
+  &__name,
+  &__position,
+  &__email,
+  &__phone {
+    text-align: center;
+    font-size: 16px;
+    line-height: 26px;
+
+    color: $color__text--main;
+
+    word-break: break-all;
+  }
+
+  &__email,
+  &__phone {
+    display: block;
+  }
+
+  &__name {
+    margin-bottom: 20px;
+  }
+}

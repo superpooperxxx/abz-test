@@ -3,7 +3,7 @@ import './Hero.scss';
 import { Button } from '../Button';
 
 export const Hero = () => (
-  <section className="hero">
+  <section className="hero page__hero">
     <div className="hero__container container">
       <div className="hero__content">
         <h1 className="hero__title">Test assignment for front-end developer</h1>
