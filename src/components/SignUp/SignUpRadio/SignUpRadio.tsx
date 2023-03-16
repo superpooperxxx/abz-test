@@ -3,16 +3,20 @@ import { getPositions } from '../../../api/users';
 import { Position } from '../../../types/Position';
 import cn from 'classnames';
 
-export const SignUpRadio = () => {
+type Props = {
+  value: number;
+  updateValue: (value: number) => void;
+};
+
+export const SignUpRadio: React.FC<Props> = ({ value, updateValue }) => {
   const [positions, setPositions] = useState<Position[]>([]);
-  const [positionId, setPositionId] = useState(0);
 
   useEffect(() => {
     getPositions()
       .then((res) => res.data.positions)
       .then((positions) => {
         setPositions(positions);
-        setPositionId(positions[0].id);
+        updateValue(positions[0].id);
       })
       .catch((error) => alert(error));
   }, []);
@@ -25,10 +29,10 @@ export const SignUpRadio = () => {
           <li className="sign-up__option-item" key={position.id}>
             <button
               className={cn('sign-up__option', {
-                'sign-up__option--active': positionId === position.id,
+                'sign-up__option--active': value === position.id,
               })}
               type="button"
-              onClick={() => setPositionId(position.id)}
+              onClick={() => updateValue(position.id)}
             >
               {position.name}
             </button>
