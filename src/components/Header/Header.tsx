@@ -14,14 +14,14 @@ export const Header: React.FC = () => (
       </a>
       <ul className="header__btns">
         <li className="header__btn">
-          <button className="btn" type="button">
+          <a className="btn" type="button" href="#people">
             Users
-          </button>
+          </a>
         </li>
         <li className="header__btn">
-          <button className="btn" type="button">
+          <a className="btn" type="button" href="#sign-up">
             Sign up
-          </button>
+          </a>
         </li>
       </ul>
     </div>

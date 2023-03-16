@@ -43,7 +43,7 @@ export const People: React.FC<Props> = ({ newUserRegistered }) => {
   }, [nextPageLink]);
 
   return (
-    <section className="people page__people">
+    <section className="people page__people" id="people">
       <div className="container">
         <SectionTitle>Working with GET request</SectionTitle>
         {people.length === 0 ? (

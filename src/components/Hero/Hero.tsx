@@ -14,9 +14,9 @@ export const Hero = () => (
           Front-End Development keeps evolving.
         </p>
         <div className="hero__btn">
-          <button className="btn" type="button">
+          <a className="btn" type="button" href="#sign-up">
             Sign up
-          </button>
+          </a>
         </div>
       </div>
     </div>

@@ -108,7 +108,7 @@ export const SignUp: React.FC<Props> = ({
   };
 
   return (
-    <section className="sign-up">
+    <section className="sign-up" id="sign-up">
       <div className="container">
         {!newUserRegistered ? (
           <>
