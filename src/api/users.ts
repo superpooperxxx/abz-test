@@ -9,3 +9,14 @@ const requests = {
 export const getUsers = (query: string) => {
   return requests.get(`/users?${query}`);
 };
+
+export const getPositions = () => requests.get('/positions');
+
+export const getToken = () => requests.get('/token');
+
+export const postNewUser = (newUser: FormData, token: string) =>
+  fetch(`${BASE_URL}/users`, {
+    method: 'POST',
+    body: newUser,
+    headers: { Token: token },
+  });

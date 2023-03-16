@@ -6,7 +6,9 @@ body,
 ul,
 h1,
 h2,
-p {
+p,
+input,
+button {
   margin: 0;
   padding: 0;
 }
@@ -23,4 +25,13 @@ ul {
 
 a {
   text-decoration: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+label {
+  cursor: pointer;
 }

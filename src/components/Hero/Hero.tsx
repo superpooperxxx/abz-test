@@ -1,6 +1,5 @@
 import React from 'react';
 import './Hero.scss';
-import { Button } from '../Button';
 
 export const Hero = () => (
   <section className="hero page__hero">
@@ -15,7 +14,9 @@ export const Hero = () => (
           Front-End Development keeps evolving.
         </p>
         <div className="hero__btn">
-          <Button>Sign up</Button>
+          <button className="btn" type="button">
+            Sign up
+          </button>
         </div>
       </div>
     </div>
