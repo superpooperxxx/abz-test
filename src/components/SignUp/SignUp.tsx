@@ -6,11 +6,21 @@ import { SignUpField } from './SignUpField/SignUpField';
 import './SignUp.scss';
 import { SignUpRadio } from './SignUpRadio/SignUpRadio';
 import { SignUpFile } from './SignUpFile/SignUpFile';
-// import { postNewUser } from '../../api/users';
+import { getToken, postNewUser } from '../../api/users';
+
+import SuccessImg from '../../static/success-image.svg';
 
 const allowedFileFormats = ['image/jpeg', 'image/jpg'];
 
-export const SignUp = () => {
+type Props = {
+  newUserRegistered: boolean;
+  setNewUserRegistered: (value: boolean) => void;
+};
+
+export const SignUp: React.FC<Props> = ({
+  newUserRegistered,
+  setNewUserRegistered,
+}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -75,61 +85,78 @@ export const SignUp = () => {
       return;
     }
 
-    const newUser = new FormData();
+    if (isNameValid && isEmailValid && isPhoneValid && isFileValid) {
+      const newUser = new FormData();
 
-    newUser.append('name', name);
-    newUser.append('email', email);
-    newUser.append('phone', phone);
-    newUser.append('position_id', String(positionId));
-    newUser.append('photo', photo);
+      newUser.append('name', name);
+      newUser.append('email', email);
+      newUser.append('phone', phone);
+      newUser.append('position_id', String(positionId));
+      newUser.append('photo', photo);
 
-    const TOKEN =
-      'eyJpdiI6IlkxZG9DNDZmaFQ3QjMrWFFaOVBvQUE9PSIsInZhbHVlIjoiY3p2R3F2dWxESEpvclwvbTRKaUNqMHZuanI3bDgyaHprZnpsMUVCaFAzUG84aXZPYW1tS3NEOWMwRGo1TU5KNkR2R0lzeUNPTDZRUU1vcTRDZDR2a3BnPT0iLCJtYWMiOiIyZTMzMjc4YTU0YTc5M2FmY2JkNDIyNjA1MDdjZDllZmI0OWJhYzBmOWI1NTdlMDVjZTYwM2JkYjAyNWM3NDlmIn0=';
-
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
-      method: 'POST',
-      body: newUser,
-      headers: { Token: TOKEN },
-    }).then((res) => console.log(res));
+      getToken()
+        .then((res) => res.data)
+        .then((data) => {
+          postNewUser(newUser, data.token)
+            .then((res) => {
+              console.log(res);
+              setNewUserRegistered(true);
+            })
+            .catch(alert);
+        });
+    }
   };
 
   return (
     <section className="sign-up">
       <div className="container">
-        <SectionTitle>Working with POST request</SectionTitle>
-        <form className="sign-up__form" onSubmit={handleSubmit}>
-          <SignUpField
-            errorMessage={errorName}
-            placeholder="Your name"
-            value={name}
-            updateValue={setName}
-          />
-          <SignUpField
-            errorMessage={errorEmail}
-            placeholder="Email"
-            value={email}
-            updateValue={setEmail}
-          />
-          <SignUpField
-            errorMessage={errorPhone}
-            placeholder="Phone"
-            value={phone}
-            updateValue={setPhone}
-            helper="+38 (XXX) XXX - XX - XX"
-          />
+        {!newUserRegistered ? (
+          <>
+            <SectionTitle>Working with POST request</SectionTitle>
+            <form className="sign-up__form" onSubmit={handleSubmit}>
+              <SignUpField
+                errorMessage={errorName}
+                placeholder="Your name"
+                value={name}
+                updateValue={setName}
+              />
+              <SignUpField
+                errorMessage={errorEmail}
+                placeholder="Email"
+                value={email}
+                updateValue={setEmail}
+              />
+              <SignUpField
+                errorMessage={errorPhone}
+                placeholder="Phone"
+                value={phone}
+                updateValue={setPhone}
+                helper="+38 (XXX) XXX - XX - XX"
+              />
 
-          <SignUpRadio value={positionId} updateValue={setPositionId} />
+              <SignUpRadio value={positionId} updateValue={setPositionId} />
 
-          <SignUpFile updateFile={setPhoto} errorMessage={errorFile} />
+              <SignUpFile updateFile={setPhoto} errorMessage={errorFile} />
 
-          <button
-            className={cn('sign-up__submit btn', {
-              'btn--disabled': !name || !email || !phone || !photo,
-            })}
-          >
-            Sign up
-          </button>
-        </form>
+              <button
+                className={cn('sign-up__submit btn', {
+                  'btn--disabled': !name || !email || !phone || !photo,
+                })}
+              >
+                Sign up
+              </button>
+            </form>
+          </>
+        ) : (
+          <>
+            <SectionTitle>User successfully registered</SectionTitle>
+            <img
+              src={SuccessImg}
+              alt="Success image after user was created"
+              className="sign-up__succes-img"
+            />
+          </>
+        )}
       </div>
     </section>
   );

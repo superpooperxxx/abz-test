@@ -1,9 +1,11 @@
 @use '../../sassStyles/colors' as *;
 
 .sign-up {
+  margin-bottom: 100px;
+
   &__form {
     max-width: 380px;
-    margin: 0 auto 100px;
+    margin: 0 auto;
   }
 
   &__field-container {
@@ -179,6 +181,13 @@
 
   // SUBMIT
   &__submit {
+    margin: 0 auto;
+  }
+
+  &__succes-img {
+    display: block;
+    width: 100%;
+    max-width: 328px;
     margin: 0 auto;
   }
 }

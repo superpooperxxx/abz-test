@@ -11,7 +11,7 @@ export const PersonCard: React.FC<Props> = ({ personData }) => {
 
   return (
     <article className="person">
-      <img src={photo} alt="" className="person__photo" />
+      <img src={photo} alt={`portrait of ${name}`} className="person__photo" />
       <p className="person__name">{name}</p>
       <p className="person__position">{position}</p>
       <a href={`mailto:${email}`} className="person__email">

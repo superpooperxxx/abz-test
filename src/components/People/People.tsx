@@ -6,7 +6,11 @@ import { Loader } from '../Loader';
 import './People.scss';
 import { SectionTitle } from '../SectionTitle';
 
-export const People = () => {
+type Props = {
+  newUserRegistered: boolean;
+};
+
+export const People: React.FC<Props> = ({ newUserRegistered }) => {
   const [people, setPeople] = useState<Person[]>([]);
   const [isLoadingNew, setIsLoadingNew] = useState(false);
   const [nextPageLink, setNextPageLink] = useState<string | null>(null);
@@ -19,7 +23,7 @@ export const People = () => {
         setNextPageLink(data.links.next_url);
       })
       .catch((error) => alert(error));
-  }, []);
+  }, [newUserRegistered]);
 
   const loadMoreHandler = useCallback(() => {
     setIsLoadingNew(true);

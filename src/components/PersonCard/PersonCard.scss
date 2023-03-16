@@ -26,7 +26,8 @@
 
     color: $color__text--main;
 
-    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__email,
