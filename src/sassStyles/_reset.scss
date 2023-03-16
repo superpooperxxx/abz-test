@@ -1,5 +1,11 @@
+@use './colors' as *;
+
 * {
   box-sizing: border-box;
+
+  &::selection {
+    background-color: $color__accent;
+  }
 }
 
 body,
