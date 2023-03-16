@@ -1,13 +1,13 @@
 @use '../../sassStyles/variables' as *;
 
 .header {
+  background: #fff;
+
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: $header__height;
-
-    background: #fff;
   }
 
   &__btns {
