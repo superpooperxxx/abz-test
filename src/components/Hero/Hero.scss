@@ -5,22 +5,28 @@
 .hero {
   min-height: calc(100vh - $header__height);
 
-  background-image: url('../../static/hero__background--mobile.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  @include onTablet {
-    background-image: url('../../static/hero__background.jpg');
-  }
-
-  @include onLandscape {
-    padding: 50px 0;
+  @include onUlta {
+    min-height: 0;
+    height: 650px;
   }
 
   &__container {
     display: flex;
     align-items: center;
     min-height: inherit;
+    height: inherit;
+
+    background-image: url('../../static/hero__background--mobile.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include onLandscape {
+      padding: 50px 0;
+    }
+
+    @include onTablet {
+      background-image: url('../../static/hero__background.jpg');
+    }
   }
 
   &__content {
