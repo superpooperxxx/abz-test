@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { getUsers } from '../../api/users';
 import { Person } from '../../types/Person';
 import { PersonCard } from '../PersonCard';
-import { Button } from '../Button';
 import { Loader } from '../Loader';
 import './People.scss';
+import { SectionTitle } from '../SectionTitle';
 
 export const People = () => {
   const [people, setPeople] = useState<Person[]>([]);
@@ -17,7 +17,6 @@ export const People = () => {
       .then((data) => {
         setPeople(data.users);
         setNextPageLink(data.links.next_url);
-        console.log(data);
       })
       .catch((error) => alert(error));
   }, []);
@@ -42,7 +41,7 @@ export const People = () => {
   return (
     <section className="people page__people">
       <div className="container">
-        <h2 className="people__title">Working with GET request</h2>
+        <SectionTitle>Working with GET request</SectionTitle>
         {people.length === 0 ? (
           <Loader />
         ) : (
@@ -60,9 +59,13 @@ export const People = () => {
             {isLoadingNew && <Loader />}
             {nextPageLink && (
               <div className="people__show-more">
-                <Button clickHandler={loadMoreHandler} big={true}>
+                <button
+                  type="button"
+                  className="btn btn--show-more"
+                  onClick={() => loadMoreHandler()}
+                >
                   Show more
-                </Button>
+                </button>
               </div>
             )}
           </>

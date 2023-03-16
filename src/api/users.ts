@@ -9,3 +9,5 @@ const requests = {
 export const getUsers = (query: string) => {
   return requests.get(`/users?${query}`);
 };
+
+export const getPositions = () => requests.get('/positions');

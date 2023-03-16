@@ -1,0 +1,183 @@
+@use '../../sassStyles/colors' as *;
+
+.sign-up {
+  &__form {
+    max-width: 380px;
+    margin: 0 auto 100px;
+  }
+
+  &__field-container {
+    position: relative;
+    margin-bottom: 50px;
+  }
+
+  &__field {
+    height: 54px;
+    width: 100%;
+    padding: 0 16px;
+
+    font-family: 'Nurito', sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+
+    color: $color__text--main;
+    background-color: $color__background;
+
+    border: 1px solid $color__input--border;
+    border-radius: 4px;
+
+    &::placeholder {
+      color: $color__input--placeholder;
+    }
+
+    &--error {
+      border: 2px solid $color__warning;
+    }
+  }
+
+  &__field-label,
+  &__helper-text {
+    position: absolute;
+
+    font-size: 12px;
+    line-height: 14px;
+    color: $color__input--placeholder;
+  }
+
+  &__field-label {
+    left: 12px;
+    top: 1px;
+
+    padding: 0 4px;
+
+    background-color: $color__background;
+    transform: translateY(-50%);
+
+    opacity: 0;
+
+    &--active {
+      opacity: 1;
+    }
+
+    &--error {
+      color: $color__warning;
+    }
+  }
+
+  &__helper-text {
+    left: 16px;
+    bottom: -4px;
+
+    transform: translateY(100%);
+
+    &--error {
+      color: $color__warning;
+    }
+  }
+
+  // RADIO BUTTONS
+  &__radio {
+    margin-bottom: 50px;
+  }
+
+  &__radio-title {
+    margin-bottom: 14px;
+
+    font-size: 16px;
+    line-height: 26px;
+
+    color: $color__text--main;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    padding-left: 5px;
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    font-size: 16px;
+    color: $color__text--main;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      box-shadow: 0 0 0 4px $color__background, 0 0 0 5px $color__input--border;
+    }
+
+    &--active {
+      &::before {
+        background-color: $color__secondary;
+        box-shadow: 0 0 0 4px $color__background, 0 0 0 5px $color__secondary;
+      }
+    }
+  }
+
+  // FILE UPLOAD
+  &__file {
+    display: none;
+  }
+
+  &__file-label {
+    display: flex;
+    height: 54px;
+    margin-bottom: 50px;
+  }
+
+  &__upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 83px;
+
+    font-size: 16px;
+    color: $color__text--main;
+
+    border: 1px solid $color__text--main;
+    border-radius: 4px 0 0 4px;
+  }
+
+  &__file-name {
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 16px;
+    font-size: 16px;
+    color: $color__input--placeholder;
+
+    border: 1px solid $color__input--border;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+
+    &--loaded {
+      color: $color__text--main;
+    }
+  }
+
+  &__upload,
+  &__file-name {
+    &--error {
+      border-color: $color__warning;
+      border-width: 2px;
+    }
+  }
+
+  // SUBMIT
+  &__submit {
+    margin: 0 auto;
+  }
+}
