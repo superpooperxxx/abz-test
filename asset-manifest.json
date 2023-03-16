@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/abz-test/static/css/main.c4a279ac.css",
-    "main.js": "/abz-test/static/js/main.fd1e71f3.js",
+    "main.css": "/abz-test/static/css/main.a571c3c5.css",
+    "main.js": "/abz-test/static/js/main.94e686a4.js",
     "static/media/hero__background.jpg": "/abz-test/static/media/hero__background.7361cab487e48552ea2f.jpg",
     "static/media/hero__background--mobile.jpg": "/abz-test/static/media/hero__background--mobile.ee2673d80466dcaa4d54.jpg",
     "static/media/Nunito-Regular.ttf": "/abz-test/static/media/Nunito-Regular.99a3b019e7727ac19479.ttf",
@@ -9,11 +9,11 @@
     "static/media/Logo.svg": "/abz-test/static/media/Logo.150974506a8091ec12dafa4bb2e4f890.svg",
     "static/media/loader-icon.svg": "/abz-test/static/media/loader-icon.0aaf07f39acaa32ce036564ce35dba88.svg",
     "index.html": "/abz-test/index.html",
-    "main.c4a279ac.css.map": "/abz-test/static/css/main.c4a279ac.css.map",
-    "main.fd1e71f3.js.map": "/abz-test/static/js/main.fd1e71f3.js.map"
+    "main.a571c3c5.css.map": "/abz-test/static/css/main.a571c3c5.css.map",
+    "main.94e686a4.js.map": "/abz-test/static/js/main.94e686a4.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4a279ac.css",
-    "static/js/main.fd1e71f3.js"
+    "static/css/main.a571c3c5.css",
+    "static/js/main.94e686a4.js"
   ]
 }
